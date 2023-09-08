@@ -1,1 +1,24 @@
-<p>invoicesum works!</p>
+<div class="flex flex-1 h-full justify-between items-center mx-10">
+    <div>
+        <button class="px-4 py-2 m-2 w-28 bg-emerald-500 text-white rounded-full font-bold"> 
+            <fa-icon [icon]="faPrintIcon" class="px-2"></fa-icon> Print 
+        </button>
+        <button class="px-4 py-2 m-2 w-28 bg-emerald-500 text-white rounded-full font-bold"> 
+            <fa-icon [icon]="faSaveIcon" class="px-2"></fa-icon> Save 
+        </button>
+    </div>
+    <div class="h-full flex flex-1 justify-end gap-20 mx-10 items-center">
+        <div class="flex flex-col text-white items-end">
+            <h3> Discount </h3>
+            <h1 class="text-2xl font-bold"> 0.0 </h1>
+        </div>
+        <div class="flex flex-col text-white items-end">
+            <h3> VAT </h3>
+            <h1 class="text-2xl font-bold"> 10.0 </h1>
+        </div>
+        <div class="flex flex-col text-white items-end">
+            <h3> Total amount </h3>
+            <h1 class="text-2xl font-bold"> 510.0 </h1>
+        </div>
+    </div>
+</div>
