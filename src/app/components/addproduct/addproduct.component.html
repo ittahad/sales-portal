@@ -1,10 +1,24 @@
-<div class="flex flex-1 flex-col">
-    <div class="flex flex-1 flex-row m-2">    
+<div class="flex flex-1 flex-col p-10">
+        
+    <div class="flex flex-1 justify-center my-5">
+        <h2 class="text-xl font-semibold text-gray-700">Add Product</h2>
+    </div>
+    <div class="flex flex-1 flex-row m-2">
         <input type="text" placeholder="Product Code" class="w-1/2 p-2 m-2" />
         <input type="text" placeholder="Product Title" class="w-1/2 p-2 m-2" />
     </div>
-    <div class="flex flex-1 flex-row mx-2 mb-2">    
-        <input type="number" placeholder="Product Quantity" class="w-1/2 p-2 m-2" />
+    <div class="flex flex-1 flex-row mx-2 mb-2">
+        <input type="number" placeholder="Units" class="w-1/2 p-2 m-2" />
         <input type="number" placeholder="Unit Price" class="w-1/2 p-2 m-2" />
+    </div>
+    <div class="flex flex-1 flex-col mx-2 mb-2">
+        <app-apcatagory *ngFor="let row of totalCatagory" 
+        [category]="row!" 
+        (deleteCatagoryRow)="deleteRow($event)"></app-apcatagory>
+    </div>
+
+    <div class="flex flex-1 flex-row justify-between mx-2 mb-2 mt-5">
+        <button class="p-2 m-2 bg-white" (click)="addNewCatagory()"> <fa-icon [icon]="faAddIcon" size="sm"></fa-icon> <span class="text-sm mx-2">Add Catagory</span></button>
+        <button class="px-4 py-2 m-2 bg-white"> Save </button>
     </div>
 </div>

@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
+import { MatTableModule } from '@angular/material/table';
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AddproductComponent } from './components/addproduct/addproduct.component';
@@ -9,6 +10,9 @@ import { ShowproductsComponent } from './components/showproducts/showproducts.co
 import { HomeComponent } from './components/home/home.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NavbuttonComponent } from './components/navbutton/navbutton.component';
+import { SearchbarComponent } from './components/searchbar/searchbar.component';
+import { ApcatagoryComponent } from './components/apcatagory/apcatagory.component';
+import { CreatebillComponent } from './components/createbill/createbill.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +21,17 @@ import { NavbuttonComponent } from './components/navbutton/navbutton.component';
     AddproductComponent,
     ShowproductsComponent,
     HomeComponent,
-    NavbuttonComponent
+    NavbuttonComponent,
+    SearchbarComponent,
+    ApcatagoryComponent,
+    CreatebillComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

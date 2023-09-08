@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 export class NavbuttonComponent {
 
   @Input() btnIcon: any;
+  @Input() navigationLink: string = '';
   @Input() btnText: string = "";
 
   constructor() { }

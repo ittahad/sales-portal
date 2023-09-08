@@ -4,9 +4,25 @@
             <h1 class="font-bold text-white text-2xl italic my-5"> SP </h1>
         </div>
         <div class="flex flex-col">
-            <app-navbutton [btnIcon]="faAddIcon" btnText="Add"></app-navbutton>
-            <app-navbutton [btnIcon]="faPersonIcon" btnText="Profile"></app-navbutton>
-            <app-navbutton [btnIcon]="faInfoIcon" btnText="About"></app-navbutton>
+            <app-navbutton [btnIcon]="faAddIcon" btnText="{{btn_Add_Text}}" 
+                [routerLink]="''"
+                (click)="showFocus(btn_Add_Text)" 
+                [ngClass]="{'bg-gray-600': selectedButton == btn_Add_Text }"></app-navbutton>
+            
+            <app-navbutton [btnIcon]="faCreateBillIcon" btnText="{{btn_CreateBill_Text}}" 
+                [routerLink]="'bill'"
+                (click)="showFocus(btn_CreateBill_Text)"
+                [ngClass]="{'bg-gray-600': selectedButton == btn_CreateBill_Text }"></app-navbutton>
+
+            <app-navbutton [btnIcon]="faPersonIcon" btnText="{{btn_Profile_Text}}"
+                [routerLink]="'bill'"
+                (click)="showFocus(btn_Profile_Text)"
+                [ngClass]="{'bg-gray-600': selectedButton == btn_Profile_Text }"></app-navbutton>
+
+            <app-navbutton [btnIcon]="faInfoIcon" btnText="{{btn_About_Text}}"
+                [routerLink]="'bill'"
+                (click)="showFocus(btn_About_Text)"
+                [ngClass]="{'bg-gray-600': selectedButton == btn_About_Text }"></app-navbutton>
         </div>
     </div>
 </div>
