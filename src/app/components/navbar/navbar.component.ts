@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { faPlus, faPerson, 
-  faInfo, faDollar } from '@fortawesome/free-solid-svg-icons';
+  faInfo, faDollar, faFileInvoice } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
@@ -13,12 +13,12 @@ export class NavbarComponent implements OnInit {
   faAddIcon = faPlus;
   faPersonIcon = faPerson;
   faInfoIcon = faInfo;
-  faCreateBillIcon = faDollar;
+  faCreateBillIcon = faFileInvoice;
 
   selectedButton : string = "Add";
 
   btn_Add_Text : string = "Add";
-  btn_CreateBill_Text: string = "Create Bill";
+  btn_CreateBill_Text: string = "Invoice";
   btn_Profile_Text : string = "Profile";
   btn_About_Text : string = "About";
 

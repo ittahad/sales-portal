@@ -13,6 +13,9 @@ import { NavbuttonComponent } from './components/navbutton/navbutton.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { ApcatagoryComponent } from './components/apcatagory/apcatagory.component';
 import { CreatebillComponent } from './components/createbill/createbill.component';
+import { BillentryComponent } from './components/billentry/billentry.component';
+import { InvoicesumComponent } from './components/invoicesum/invoicesum.component';
+import { ReceiptviewComponent } from './components/receiptview/receiptview.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { CreatebillComponent } from './components/createbill/createbill.componen
     NavbuttonComponent,
     SearchbarComponent,
     ApcatagoryComponent,
-    CreatebillComponent
+    CreatebillComponent,
+    BillentryComponent,
+    InvoicesumComponent,
+    ReceiptviewComponent
   ],
   imports: [
     BrowserModule,
