@@ -24,7 +24,8 @@
         <button class="p-2 m-2 bg-white" (click)="addNewCatagory()"> <fa-icon [icon]="faAddIcon" size="sm"></fa-icon> <span class="text-sm mx-2">Add Catagory</span></button>
         <button 
         data-te-ripple-init
-        data-te-ripple-color="dark" class="px-4 py-2 m-2 bg-white" (click)="saveItem()"> Save </button>
+        data-te-ripple-color="dark" class="px-4 py-2 m-2 bg-white" (click)="saveItem()"
+        [disabled]="!pcode"> Save </button>
     </div>
     </form>
 </div>
