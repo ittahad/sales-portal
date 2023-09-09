@@ -1,6 +1,6 @@
 <div class="flex flex-row">
-    <input type="text" [placeholder]="category.category" class="w-2/4 p-2 m-2 text-sm" />
-    <input type="number" placeholder="Units" class="w-1/4 p-2 m-2 text-sm" />
-    <input type="number" placeholder="Price" class="w-1/4 p-2 m-2 text-sm" />
+    <input type="text" name="pcategory" [(ngModel)]="pcategory" (input)="passChange()" [placeholder]="category.category ?? ('Category ' + (index+1))" class="w-2/4 p-2 m-2 text-sm" />
+    <input type="number" name="punits" [(ngModel)]="punits" (input)="passChange()" [placeholder]="category.units ?? 0.0" class="w-1/4 p-2 m-2 text-sm" />
+    <input type="number" name="pprice" [(ngModel)]="pprice" (input)="passChange()" [placeholder]="category.price ?? 0.0" class="w-1/4 p-2 m-2 text-sm" />
     <button class="m-2"> <fa-icon [icon]="faRemoveIcon" size="lg" (click)="deleteCatRow()"></fa-icon></button>
 </div>

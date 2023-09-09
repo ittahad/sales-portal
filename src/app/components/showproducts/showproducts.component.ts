@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-showproducts',
@@ -8,29 +9,28 @@ import { Component, OnInit } from '@angular/core';
 export class ShowproductsComponent implements OnInit {
   dataSource : PeriodicElement[] = [];
   displayedColumns: string[] = [];
-  ELEMENT_DATA: PeriodicElement[] = [
-    {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-    {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-    {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-    {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-    {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-    {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-    {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-    {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  ];
+  // ELEMENT_DATA: PeriodicElement[] = [
+  //   {position: 1, pcode: 'Hydrogen', ptitle: 'Hydrogen', pcategory: 'Cat A', units: 1.0079, price: 100.0, action: ''},
+  //   {position: 1, pcode: 'Hydrogen', ptitle: 'Hydrogen', pcategory: 'Cat B', units: 1.0079, price: 100.0, action: ''},
+  // ];
 
-  constructor() { }
+  constructor(private productService: ProductService) { }
   
   ngOnInit(): void {
-    this.displayedColumns = ['position', 'name', 'weight', 'symbol'];
-    this.dataSource = this.ELEMENT_DATA;
+    this.displayedColumns = ['position', 'pcode', 'ptitle', 'pcategory', 'units', 'price', 'action'];
+    this.productService.getProducts().subscribe(x => {
+      this.dataSource = x;
+    });
   }
 }
 
 
 export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  position: number,
+  pcode: string;
+  ptitle: string;
+  pcategory: string;
+  units: number;
+  price: number;
+  action: string
 }

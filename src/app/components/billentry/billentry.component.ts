@@ -24,7 +24,6 @@ export class BillentryComponent {
   }
 
   deleteRow($event: any) {
-    console.log($event);
     this.totalCatagory = this.totalCatagory.filter(x => x.category !== $event.category);
   }
 }

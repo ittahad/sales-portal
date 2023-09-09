@@ -15,21 +15,40 @@
             </ng-container>
         
             <!-- Name Column -->
-            <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef> Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            <ng-container matColumnDef="pcode">
+            <th mat-header-cell *matHeaderCellDef> Product Code </th>
+            <td mat-cell *matCellDef="let element"> {{element.pcode}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="ptitle">
+                <th mat-header-cell *matHeaderCellDef> Product Title </th>
+                <td mat-cell *matCellDef="let element"> {{element.ptitle}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="pcategory">
+                <th mat-header-cell *matHeaderCellDef> Category </th>
+                <td mat-cell *matCellDef="let element"> {{element.pcategory}} </td>
             </ng-container>
         
             <!-- Weight Column -->
-            <ng-container matColumnDef="weight">
-            <th mat-header-cell *matHeaderCellDef> Weight </th>
-            <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+            <ng-container matColumnDef="units">
+            <th mat-header-cell *matHeaderCellDef> Units </th>
+            <td mat-cell *matCellDef="let element"> {{element.units}} </td>
             </ng-container>
         
             <!-- Symbol Column -->
-            <ng-container matColumnDef="symbol">
-            <th mat-header-cell *matHeaderCellDef> Symbol </th>
-            <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+            <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef> Price </th>
+            <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef>  </th>
+                <td mat-cell *matCellDef="let element">
+                    <button class="bg-gray-700 px-2 py-1 rounded-sm shadow-md shadow-gray-300"> <span class="text-sm text-white">Details</span></button>
+                </td>
             </ng-container>
         
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
