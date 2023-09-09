@@ -3,13 +3,15 @@ import { Router } from '@angular/router';
 import { NavService } from 'src/app/services/nav.service';
 
 @Component({
-  selector: 'app-createbill',
-  templateUrl: './createbill.component.html',
-  styleUrls: ['./createbill.component.css']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css']
 })
-export class CreatebillComponent implements OnInit {
+export class ProfileComponent implements OnInit {
+  
   constructor(private router: Router, private navService: NavService) {
   }
+
   ngOnInit(): void {
     this.navService.toggleNavigation(this.router.url);
   }

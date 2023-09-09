@@ -16,6 +16,8 @@ import { CreatebillComponent } from './components/createbill/createbill.componen
 import { BillentryComponent } from './components/billentry/billentry.component';
 import { InvoicesumComponent } from './components/invoicesum/invoicesum.component';
 import { ReceiptviewComponent } from './components/receiptview/receiptview.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { ReceiptviewComponent } from './components/receiptview/receiptview.compo
     CreatebillComponent,
     BillentryComponent,
     InvoicesumComponent,
-    ReceiptviewComponent
+    ReceiptviewComponent,
+    ProfileComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

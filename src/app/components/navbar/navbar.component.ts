@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { faPlus, faPerson, 
   faInfo, faDollar, faFileInvoice } from '@fortawesome/free-solid-svg-icons';
+import { NavService } from 'src/app/services/nav.service';
 
 @Component({
   selector: 'app-navbar',
@@ -22,14 +23,25 @@ export class NavbarComponent implements OnInit {
   btn_Profile_Text : string = "Profile";
   btn_About_Text : string = "About";
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router, 
+    private navService: NavService) {
   }
 
   ngOnInit(): void {
-    console.log(this.router.url);
+    this.navService.listenNavigation().subscribe(x => {
+      if(x === '') {
+        this.selectedButton = this.btn_Add_Text;
+      } else if(x === '/bill') {
+        this.selectedButton = this.btn_CreateBill_Text;
+      } else if(x === '/profile') {
+        this.selectedButton = this.btn_Profile_Text;
+      }
+    });
   }
 
   showFocus(btnName: string) {
+    this.navService.toggleNavigation(this.router.url);
     this.selectedButton = btnName;
   }
 

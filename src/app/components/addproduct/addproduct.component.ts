@@ -1,13 +1,24 @@
 import { Expression } from '@angular/compiler';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import { NavService } from 'src/app/services/nav.service';
+import { Ripple, initTE } from 'tw-elements';
 
 @Component({
   selector: 'app-addproduct',
   templateUrl: './addproduct.component.html',
   styleUrls: ['./addproduct.component.css']
 })
-export class AddproductComponent {
+export class AddproductComponent implements OnInit {
+  
+  constructor(private router: Router, private navService: NavService) {
+  }
+
+  ngOnInit(): void {
+    initTE({ Ripple });
+    this.navService.toggleNavigation(this.router.url);
+  }
   
   faAddIcon = faPlus;
   faDeleteIcon = faMinus;
