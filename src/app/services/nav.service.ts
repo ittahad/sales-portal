@@ -7,6 +7,7 @@ import { Observable, Subject } from 'rxjs';
 export class NavService {
 
   navSubject = new Subject<string>();
+  reloadHomePageProductsSubject = new Subject<boolean>();
 
   constructor() { }
 
@@ -16,5 +17,13 @@ export class NavService {
 
   listenNavigation(): Observable<string> {
     return this.navSubject.asObservable()
+  }
+
+  reloadHomePageProducts() {
+    return this.reloadHomePageProductsSubject.next(true);
+  }
+
+  listenHomePageProductsChange() {
+    return this.reloadHomePageProductsSubject.asObservable();
   }
 }

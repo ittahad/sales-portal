@@ -14,18 +14,6 @@ import { PeriodicElement } from '../showproducts/showproducts.component';
 })
 export class AddproductComponent implements OnInit {
   
-  constructor(
-    private router: Router, 
-    private navService: NavService,
-    private productService: ProductService) {
-  }
-
-  ngOnInit(): void {
-    initTE({ Ripple });
-    this.navService.toggleNavigation(this.router.url);
-    this.totalCatagoryRemapped = this.reMapCategories(this.totalCatagory);
-  }
-  
   faAddIcon = faPlus;
   faDeleteIcon = faMinus;
   
@@ -38,6 +26,18 @@ export class AddproductComponent implements OnInit {
   ptitle: string = '';
   pdescription: string = '';
 
+  constructor(
+    private router: Router, 
+    private navService: NavService,
+    private productService: ProductService) {
+  }
+
+  ngOnInit(): void {
+    initTE({ Ripple });
+    this.navService.toggleNavigation(this.router.url);
+    this.totalCatagoryRemapped = this.reMapCategories(this.totalCatagory);
+  }
+  
   addNewCatagory() {
     this.totalCatagory.push({
       category: null,
@@ -70,16 +70,21 @@ export class AddproductComponent implements OnInit {
   }
 
   saveItem() {
-    let product: PeriodicElement = {
-      pcode: this.pcode,
-      ptitle: this.ptitle,
-      pcategory: '',
-      units: 0,
-      price: 0,
-      position: 0,
-      action: ''
-    };
-    this.productService.addProduct(product);
+    for (let x of this.totalCatagory) {
+
+      let product: PeriodicElement = {
+        pcode: this.pcode,
+        ptitle: this.ptitle,
+        pcategory: x.category!,
+        units: x.units!,
+        price: x.price!,
+        position: 0,
+        action: ''
+      };
+      this.productService.addProduct(product).subscribe(_ => {
+        this.navService.reloadHomePageProducts();
+      });
+    }
   }
 }
 

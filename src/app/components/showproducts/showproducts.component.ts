@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { NavService } from 'src/app/services/nav.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -7,19 +9,25 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./showproducts.component.css'],
 })
 export class ShowproductsComponent implements OnInit {
-  dataSource : PeriodicElement[] = [];
+  dataSource = new MatTableDataSource<PeriodicElement>();
   displayedColumns: string[] = [];
-  // ELEMENT_DATA: PeriodicElement[] = [
-  //   {position: 1, pcode: 'Hydrogen', ptitle: 'Hydrogen', pcategory: 'Cat A', units: 1.0079, price: 100.0, action: ''},
-  //   {position: 1, pcode: 'Hydrogen', ptitle: 'Hydrogen', pcategory: 'Cat B', units: 1.0079, price: 100.0, action: ''},
-  // ];
 
-  constructor(private productService: ProductService) { }
+  constructor(
+    private productService: ProductService, 
+    private navService: NavService) { }
   
   ngOnInit(): void {
     this.displayedColumns = ['position', 'pcode', 'ptitle', 'pcategory', 'units', 'price', 'action'];
+    this.reloadProducts();
+    this.navService.listenHomePageProductsChange().subscribe(x => {
+      this.reloadProducts();
+    });
+  }
+
+  reloadProducts() {
     this.productService.getProducts().subscribe(x => {
-      this.dataSource = x;
+      this.dataSource.data = x;
+      debugger;
     });
   }
 }
