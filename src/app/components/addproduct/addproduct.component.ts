@@ -84,6 +84,9 @@ export class AddproductComponent implements OnInit {
       this.productService.addProduct(product).subscribe(_ => {
         this.navService.reloadHomePageProducts();
       });
+
+      this.pcode = '';
+      this.ptitle = '';
     }
   }
 }
