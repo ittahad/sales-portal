@@ -56,7 +56,6 @@ export class AddproductComponent implements OnInit {
   }
 
   deleteRow($event: any) {
-    console.log($event);
     this.counter--;
     this.totalCatagory.splice($event, 1);
     this.totalCatagoryRemapped = this.reMapCategories(this.totalCatagory);
